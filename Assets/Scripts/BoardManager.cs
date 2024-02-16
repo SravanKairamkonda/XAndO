@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class BoardManager : MonoBehaviour
 {
@@ -24,7 +23,7 @@ public class BoardManager : MonoBehaviour
     {
         for (int i = 0; i < buttons.Length; i++)
         {
-            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = value.ToString();
+            buttons[i].GetComponentInChildren<Text>().text = value.ToString();
         }
     }
 }
