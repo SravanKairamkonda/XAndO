@@ -6,16 +6,17 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject nodeButton;
-    [SerializeField] private GameObject[] gameObjects;
+    [SerializeField] private List<GameObject> gameObjects;
 
-    private const char xValue = 'X';
-    private const char oValue = 'O';
+    private const string xValue = "X";
+    private const string oValue = "O";
 
-    private string tempName;
+    private Text tempName;
 
     private void Start()
     {
         GenerateBoard();
+        Debug.Log(gameObjects.Count);
         MatchThreeValue();
     }
 
@@ -23,16 +24,18 @@ public class GameController : MonoBehaviour
     {
         int x = 0;
         int y = 0;
-        int z = 0;
 
         for (int i = 0; i <3; i++)
         {
             for (int j = 0; j < 3; j++)
             {
                 GameObject node = Instantiate(nodeButton);
+                gameObjects.Add(node);  
                 node.transform.SetParent(this.transform);
+
                 Vector2 pos = new Vector2(x, y);
                 node.GetComponent<RectTransform>().anchoredPosition = pos;
+
                 node.GetComponentInChildren<Text>().text = xValue.ToString();
                 x += 100;
             }
@@ -44,10 +47,16 @@ public class GameController : MonoBehaviour
 
     private void MatchThreeValue()
     {
-        for (int i = 0; i < gameObjects.Length; i++)
+        foreach (GameObject node in gameObjects) 
         {
-            tempName=gameObjects[i].transform.GetComponent<Text>().text=xValue.ToString();
-            Debug.Log(tempName);    
+            tempName=node.transform.GetComponentInChildren<Text>();
+
+            if(tempName.text.ToString()==xValue)
+            {
+                tempName.text=oValue.ToString();
+            }
+           
+            Debug.Log(tempName.text);
         }
     }
     
