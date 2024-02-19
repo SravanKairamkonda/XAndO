@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         GenerateBoard();
-        Debug.Log(gameObjects.Count);
+        //Debug.Log(gameObjects.Count);
         MatchThreeValue();
     }
 
@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
                 tempName.text=oValue.ToString();
             }
            
-            Debug.Log(tempName.text);
+            //Debug.Log(tempName.text);
         }
     }
     
