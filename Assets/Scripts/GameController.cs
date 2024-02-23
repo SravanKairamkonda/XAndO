@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
                 GameObject node = Instantiate(nodeButton);
                 m_WhiteSpaces.Add(node);  
                 node.transform.SetParent(this.transform);
-                node.transform.localScale = Vector3.one * 1.5f;
+                node.transform.localScale = Vector3.one * 2f;
                 node.gameObject.name = z.ToString();
                 z++;
 
@@ -49,10 +49,10 @@ public class GameController : MonoBehaviour
 
                 //node.GetComponentInChildren<Text>().text = xValue.ToString();
                 
-                x += 100;
+                x += 150;
             }
 
-            y += 100;
+            y += 150;
             x = 0;
         }
     }
