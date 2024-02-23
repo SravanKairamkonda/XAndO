@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject nodeButton;
-    [SerializeField] private List<GameObject> m_WhiteSpaces;
+    [SerializeField]private List<GameObject> m_WhiteSpaces;
 
     private const string xValue = "X";
     private const string oValue = "O";
@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
     {
         int x = 0;
         int y = 0;
+        int z= 0;
 
         for (int i = 0; i <3; i++)
         {
@@ -35,13 +36,16 @@ public class GameController : MonoBehaviour
                 GameObject node = Instantiate(nodeButton);
                 m_WhiteSpaces.Add(node);  
                 node.transform.SetParent(this.transform);
+                node.transform.localScale = Vector3.one * 1.5f;
+                node.gameObject.name = z.ToString();
+                z++;
 
                 // Position of Button
                 Vector2 pos = new Vector2(x, y);
                 node.GetComponent<RectTransform>().anchoredPosition = pos;
 
                 // Change Image event
-                node.GetComponent<Button>().onClick.AddListener(() => ChangeImage(0));
+                //node.GetComponent<Button>().onClick.AddListener(() => ChangeImage());
 
                 //node.GetComponentInChildren<Text>().text = xValue.ToString();
                 
@@ -52,6 +56,8 @@ public class GameController : MonoBehaviour
             x = 0;
         }
     }
+
+
 
     private void MatchThreeValue()
     {
@@ -68,9 +74,9 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void ChangeImage(int number)
+    public void ChangeImage()
     {
-        m_WhiteSpaces[number].gameObject.GetComponentInChildren<Text>().text = xValue.ToString();
+
     }
     
 }
