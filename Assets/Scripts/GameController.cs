@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject nodeButton;
-    [SerializeField] private List<GameObject> gameObjects;
+    [SerializeField] private List<GameObject> m_WhiteSpaces;
 
     private const string xValue = "X";
     private const string oValue = "O";
+
+    private bool playerTurn;
 
     private Text tempName;
 
@@ -29,14 +31,20 @@ public class GameController : MonoBehaviour
         {
             for (int j = 0; j < 3; j++)
             {
+                // Adding to button to a list 
                 GameObject node = Instantiate(nodeButton);
-                gameObjects.Add(node);  
+                m_WhiteSpaces.Add(node);  
                 node.transform.SetParent(this.transform);
 
+                // Position of Button
                 Vector2 pos = new Vector2(x, y);
                 node.GetComponent<RectTransform>().anchoredPosition = pos;
 
-                node.GetComponentInChildren<Text>().text = xValue.ToString();
+                // Change Image event
+                node.GetComponent<Button>().onClick.AddListener(() => ChangeImage(0));
+
+                //node.GetComponentInChildren<Text>().text = xValue.ToString();
+                
                 x += 100;
             }
 
@@ -47,7 +55,7 @@ public class GameController : MonoBehaviour
 
     private void MatchThreeValue()
     {
-        foreach (GameObject node in gameObjects) 
+        foreach (GameObject node in m_WhiteSpaces) 
         {
             tempName=node.transform.GetComponentInChildren<Text>();
 
@@ -58,6 +66,11 @@ public class GameController : MonoBehaviour
            
             //Debug.Log(tempName.text);
         }
+    }
+
+    public void ChangeImage(int number)
+    {
+        m_WhiteSpaces[number].gameObject.GetComponentInChildren<Text>().text = xValue.ToString();
     }
     
 }
