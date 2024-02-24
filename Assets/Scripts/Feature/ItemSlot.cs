@@ -12,6 +12,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         {
             eventData.pointerDrag.GetComponent<RectTransform>().localPosition=this.GetComponent<RectTransform>().localPosition;
         }
+
+        //GameManager.onChangeTurn();
     }
 
     // Start is called before the first frame update
