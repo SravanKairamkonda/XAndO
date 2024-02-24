@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public delegate void OnChangeTurn();
     public static event OnChangeTurn onChangeTurnClicked;
 
-    
+   
 
     private void Awake()
     {
@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         {
             onChangeTurnClicked();
         }
+
         m_XItemSlot.SetActive(false);
         m_OItemSlot.SetActive(false);
     }
@@ -36,9 +37,9 @@ public class GameManager : MonoBehaviour
             m_XItemSlot.SetActive(true);
             m_OItemSlot.SetActive(false);
         }
-
        
     }
+
     private void OnEnable()
     {
         onChangeTurnClicked += ChangeTurn;
@@ -65,6 +66,8 @@ public class GameManager : MonoBehaviour
             whoseTurn=true;
         }
     }
+
+
 
 
 
