@@ -21,7 +21,7 @@ public class EventsManager : MonoBehaviour
 
         testDelegateFunction = MyTestDelegateFunction;
         testDelegateFunction+=SecondDelegateFunction;
-        testDelegateFunction();
+        testDelegateFunction?.Invoke();
 
         m_TestCardvalueFunction = TestCardValue;
         Debug.Log( m_TestCardvalueFunction("J").ToString());

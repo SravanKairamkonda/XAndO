@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 public class DragNDrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEndDragHandler,IDragHandler,IDropHandler
 {
@@ -10,6 +11,7 @@ public class DragNDrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IE
     private CanvasGroup m_canvasGroup;
     private RectTransform m_RectTransform;
 
+    public static event Action OnPlayerTurnEnd;
 
     private void Awake()
     {
@@ -35,7 +37,7 @@ public class DragNDrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IE
         Debug.Log("OnEndDrag");
         m_canvasGroup.alpha = 1f;
         m_canvasGroup.blocksRaycasts=true;
-        //ItemSlotManager.OnEmptyItemSlotInfo?.Invoke();
+        OnPlayerTurnEnd?.Invoke();
     }
 
     public void OnPointerDown(PointerEventData eventData)

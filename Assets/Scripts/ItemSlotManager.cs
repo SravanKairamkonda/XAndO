@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using System;
+using Unity.VisualScripting;
 
 public class ItemSlotManager : MonoBehaviour
 {
@@ -10,31 +12,23 @@ public class ItemSlotManager : MonoBehaviour
     [SerializeField] private Canvas m_Canvas;
 
     public delegate void OnEmptyItemSlot();
-    public static event OnEmptyItemSlot OnEmptyItemSlotInfo;
+    public static OnEmptyItemSlot OnEmptyItemSlotInfo;
 
     private void Start()
     {
-        SpawnXObject();    
+        SpawnXObject();
     }
 
-    private void OnEnable()
-    {
-        OnEmptyItemSlotInfo += SpawnXObject;
-    }
 
-    private void Awake()
+    public void OnEnable()
     {
-        if (OnEmptyItemSlotInfo != null)
-        {
-            OnEmptyItemSlotInfo();
-        }
+        DragNDrop.OnPlayerTurnEnd += SpawnXObject;
     }
     
     private void OnDisable()
     {
-        OnEmptyItemSlotInfo -= SpawnXObject;
+       DragNDrop.OnPlayerTurnEnd -= SpawnXObject; 
     }
-
 
     private void SpawnXObject()
     {
