@@ -35,7 +35,7 @@ public class DragNDrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IE
         Debug.Log("OnEndDrag");
         m_canvasGroup.alpha = 1f;
         m_canvasGroup.blocksRaycasts=true;
-        ItemSlotManager.OnEmptyItemSlotInfo?.Invoke();
+        //ItemSlotManager.OnEmptyItemSlotInfo?.Invoke();
     }
 
     public void OnPointerDown(PointerEventData eventData)

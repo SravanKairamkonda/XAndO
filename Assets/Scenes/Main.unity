@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ItemSlot: {fileID: 2692582989571088904, guid: 6b5f8b73cba5ad54f9bc84b4c2b937af, type: 3}
+  m_Canvas: {fileID: 1093986725}
 --- !u!1 &375477014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,7 +2271,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_XItemSlot: {fileID: 441650978}
   m_OItemSlot: {fileID: 1830731954}
-  m_ItemSlot: {fileID: 441650978}
 --- !u!224 &3474722564436967653 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 526931821551572635, guid: 6b5f8b73cba5ad54f9bc84b4c2b937af, type: 3}
