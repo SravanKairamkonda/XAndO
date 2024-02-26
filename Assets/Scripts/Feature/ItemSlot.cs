@@ -8,9 +8,11 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("OnDrop");
+
         if(eventData.pointerDrag!=null)
         {
-            //eventData.pointerDrag.GetComponent<RectTransform>().localPosition=this.GetComponent<RectTransform>().localPosition;
+            Vector2 pos=this.GetComponent<RectTransform>().anchoredPosition;
+            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = pos;
         }
 
         //GameManager.onChangeTurn();

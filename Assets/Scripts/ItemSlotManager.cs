@@ -19,7 +19,6 @@ public class ItemSlotManager : MonoBehaviour
         SpawnXObject();
     }
 
-
     public void OnEnable()
     {
         DragNDrop.OnPlayerTurnEnd += SpawnXObject;
@@ -33,8 +32,7 @@ public class ItemSlotManager : MonoBehaviour
     private void SpawnXObject()
     {
         GameObject temp = Instantiate(m_ItemSlot);
-        temp.transform.parent = transform;
-        temp.transform.localPosition = Vector3.zero;
+        temp.transform.SetParent(this.transform);
         temp.transform.localScale = Vector3.one * 1.5f;
         temp.GetComponent<DragNDrop>().m_Canvas = m_Canvas;
     }
