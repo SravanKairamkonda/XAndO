@@ -33,7 +33,12 @@ public class ItemSlotManager : MonoBehaviour
     {
         GameObject temp = Instantiate(m_ItemSlot);
         temp.transform.SetParent(this.transform);
-        temp.transform.localScale = Vector3.one * 1.5f;
+
+        RectTransform tempRectTransform = temp.GetComponent<RectTransform>();
+        tempRectTransform.anchoredPosition = Vector3.zero; 
+        tempRectTransform.localScale = Vector3.one;
+
+
         temp.GetComponent<DragNDrop>().m_Canvas = m_Canvas;
     }
 
