@@ -11,8 +11,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
         if(eventData.pointerDrag!=null)
         {
-            Vector2 pos=this.GetComponent<RectTransform>().anchoredPosition;
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = pos;
+            Vector2 pos=this.GetComponent<RectTransform>().localPosition;
+            eventData.pointerDrag.GetComponent<RectTransform>().localPosition = pos;
         }
 
         //GameManager.onChangeTurn();
