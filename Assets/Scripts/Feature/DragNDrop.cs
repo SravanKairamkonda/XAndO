@@ -39,7 +39,7 @@ public class DragNDrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IE
         m_canvasGroup.blocksRaycasts=true;
 
         // Trigger Events
-        //OnPlayerTurnEnd?.Invoke();
+        OnPlayerTurnEnd?.Invoke();
     }
 
     public void OnPointerDown(PointerEventData eventData)

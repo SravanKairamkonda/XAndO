@@ -14,6 +14,8 @@ public class ItemSlotManager : MonoBehaviour
     public delegate void OnEmptyItemSlot();
     public static OnEmptyItemSlot OnEmptyItemSlotInfo;
 
+    private int m_SpawnCount;
+
     private void Start()
     {
         SpawnXObject();
@@ -32,14 +34,14 @@ public class ItemSlotManager : MonoBehaviour
     private void SpawnXObject()
     {
         GameObject temp = Instantiate(m_ItemSlot);
-        temp.transform.SetParent(this.transform);
-
-        RectTransform tempRectTransform = temp.GetComponent<RectTransform>();
-        tempRectTransform.anchoredPosition = Vector3.zero; 
-        tempRectTransform.localScale = Vector3.one;
-
-
+        RectTransform tempRectTransfrom = temp.GetComponent<RectTransform>();
         temp.GetComponent<DragNDrop>().m_Canvas = m_Canvas;
+        temp.transform.gameObject.name = (++m_SpawnCount).ToString();
+
+        temp.transform.SetParent(this.transform);
+        temp.transform.localScale = Vector3.one * 1.5F;
+        tempRectTransfrom.localPosition = this.transform.position;
+        
     }
 
 
