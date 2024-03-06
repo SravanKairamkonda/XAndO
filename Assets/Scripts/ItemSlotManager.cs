@@ -16,9 +16,15 @@ public class ItemSlotManager : MonoBehaviour
 
     private int m_SpawnCount;
 
+    private RectTransform m_rectTransform;
+
+    [Range(1, 4)]
+    public float m_SizeOfBlock;
+
     private void Start()
     {
         SpawnXObject();
+        m_rectTransform = this.GetComponent<RectTransform>();
     }
 
     public void OnEnable()
@@ -39,8 +45,8 @@ public class ItemSlotManager : MonoBehaviour
         temp.transform.gameObject.name = (++m_SpawnCount).ToString();
 
         temp.transform.SetParent(this.transform);
-        temp.transform.localScale = Vector3.one * 1.5F;
-        tempRectTransfrom.localPosition = this.transform.position;
+        temp.transform.localScale = Vector3.one * m_SizeOfBlock;
+        tempRectTransfrom.localPosition = m_rectTransform.localPosition;
         
     }
 
