@@ -14,9 +14,6 @@ public class ItemSlotManager : MonoBehaviour
     public delegate void OnEmptyItemSlot();
     public static OnEmptyItemSlot OnEmptyItemSlotInfo;
 
-    /// <summary>
-    /// 
-    /// </summary>
     private int m_SpawnCount;
 
     private void Start()
@@ -34,9 +31,6 @@ public class ItemSlotManager : MonoBehaviour
        DragNDrop.OnPlayerTurnEnd -= SpawnXObject; 
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     private void SpawnXObject()
     {
         GameObject temp = Instantiate(m_ItemSlot);
