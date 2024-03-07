@@ -6,6 +6,9 @@ using UnityEngine.Events;
 using System;
 using Unity.VisualScripting;
 
+/// <summary>
+/// I feel that there is too much of time is going with this and couldn't see any progress 
+/// </summary>
 public class ItemSlotManager : MonoBehaviour
 {
     [SerializeField] private GameObject m_ItemSlot;
